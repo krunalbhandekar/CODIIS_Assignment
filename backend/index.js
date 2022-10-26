@@ -7,6 +7,9 @@ app.use(express.json());
 app.use(cors());
 
 const connection=require("./Config/config");
+const UserRoutes=require("./Routes/UserRoutes")
+
+app.use("/user",UserRoutes)
 
 app.get("/",(req,res)=>{
     return res.status(200).send("HomePage")

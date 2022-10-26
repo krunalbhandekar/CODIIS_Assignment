@@ -1,12 +1,12 @@
 const mongoose=require("mongoose")
 
-const CustomerSchema= new mongoose.Schema({
+const UserSchema= new mongoose.Schema({
     username:{type:String, required:true},
     email:{type:String, required:true},
     password:{type:String, required:true},
     isAdmin: { type: Boolean, default: false}
 })
 
-const CustomerModel=mongoose.model("admin",CustomerSchema)
+const UserModel=mongoose.model("user",UserSchema)
 
-module.exports=CustomerModel
+module.exports=UserModel
