@@ -1,7 +1,7 @@
 const express=require("express")
 const VideoRoutes=express.Router()
 const VideoModel=require("../Models/VideoModel")
-const verifyAdmin=require("../Middleware/VerifyAdmin")
+const {verifyTokenAndAdmin}=require("../Middleware/VerifyAdmin")
 const cloudinary = require('cloudinary').v2
 
 cloudinary.config({ 
@@ -13,7 +13,7 @@ cloudinary.config({
 
 //create
 
-VideoRoutes.post("/post",async(req,res)=>{
+VideoRoutes.post("/post",verifyTokenAndAdmin,async(req,res)=>{
     const {description}=req.body
      const file=req.files.video
 
@@ -41,7 +41,7 @@ VideoRoutes.get("/",async(req,res)=>{
 
 //update
 
-VideoRoutes.put("/:id",async(req,res)=>{
+VideoRoutes.put("/:id",verifyTokenAndAdmin,async(req,res)=>{
     const {description}=req.body
     console.log(req.files);
 
@@ -72,7 +72,7 @@ VideoRoutes.put("/:id",async(req,res)=>{
 
 //delete
 
-VideoRoutes.delete("/:id",async(req,res)=>{
+VideoRoutes.delete("/:id",verifyTokenAndAdmin,async(req,res)=>{
     try{
          await VideoModel.findByIdAndDelete(req.params.id);
     return res.send({message:"Video has been deleted succesfully..."});
