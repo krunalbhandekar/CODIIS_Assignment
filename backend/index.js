@@ -9,6 +9,7 @@ app.use(cors());
 const connection=require("./Config/config");
 const UserRoutes=require("./Routes/UserRoutes")
 const VideoRoutes=require("./Routes/VideoRoutes")
+const PlanRoutes=require("./Routes/PlanRoutes")
 
 const fileUpload=require("express-fileupload")
 app.use(fileUpload({
@@ -17,6 +18,7 @@ app.use(fileUpload({
 
 app.use("/user",UserRoutes)
 app.use("/video",VideoRoutes)
+app.use("/plan",PlanRoutes)
 
 app.get("/",(req,res)=>{
     return res.status(200).send("HomePage")
