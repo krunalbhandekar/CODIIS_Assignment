@@ -1,7 +1,6 @@
 const express=require("express");
 const UserRoutes=express.Router();
 const bcrypt=require("bcrypt")
-const jwt=require("jsonwebtoken")
 const UserModel=require("../Models/UserModel")
 
 require('dotenv').config()
@@ -49,8 +48,9 @@ UserRoutes.post("/login",async(req,res)=>{
             return res.send({message:"Login failed",description:"Please try again..."})
         }
         else if(result){
-            const token=jwt.sign({email:user.email},"shhhhh")
-            return res.send({message:"Login Succesfull",description:"Welcome",token:token,data:user})
+            const { password, ...others } = user._doc;
+
+            return res.send({message:"Login Succesfull",description:"Welcome",...others})
         }else{
              res.status(401).send({message:"Login failed",description:"Invalid credential"})
         }
