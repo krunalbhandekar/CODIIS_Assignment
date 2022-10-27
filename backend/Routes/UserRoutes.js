@@ -39,7 +39,7 @@ UserRoutes.post("/register",async(req,res)=>{
 UserRoutes.post("/login",async(req,res)=>{
     const {username,password}=req.body
     const user=await UserModel.findOne({username})
-
+   
     if(!user){
         return res.send({message:"Login failed",description:"User not found"})
     }

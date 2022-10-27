@@ -22,7 +22,6 @@ const Login = () => {
   }
   const handellogin=(e)=>{
     e.preventDefault()
-
 const config = {
   method: 'post',
   url: 'http://localhost:8080/user/login',
@@ -48,6 +47,15 @@ axios(config)
           isClosable: true,
         })
         navigate(response.data.isAdmin ? "/admin" :"/user")
+  }else{
+    toast({
+          title: response.data.description,
+          description: response.data.message,
+          status: 'error',
+          position:"top",
+          duration: 3000,
+          isClosable: true,
+        })
   }
 })
 .catch(function (error) {

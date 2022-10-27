@@ -24,7 +24,6 @@ const EditVideo = ({e}) => {
   }
    const handeledit=(e)=>{
     e.preventDefault()
-    console.log(form);
     dispatch(updatevideo(id,form,token)).then((res)=>{
         toast({
           title: res,

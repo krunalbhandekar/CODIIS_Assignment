@@ -38,7 +38,7 @@ const userid=localStorage.getItem("userid")
   <Navbar/>
   <Box>
     <Flex justifyContent="space-around"  my="15px">
-      <Heading>My Plans</Heading> 
+      {myplan.length ? <Heading>My Plans</Heading> : <Heading>You have not purchased any plan</Heading>}
     </Flex>
     {myplan.length ?
       <Grid gap="15px" w="92%" m="auto" gridTemplateColumns={{base:"repeat(1,1fr)",md:"repeat(2,1fr)", lg:"repeat(3,1fr)"}}>
