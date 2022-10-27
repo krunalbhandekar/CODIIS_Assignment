@@ -16,10 +16,10 @@ UserRoutes.post("/register",async(req,res)=>{
     const oldEmail=await UserModel.findOne({email})
 
     if(oldUsername){
-        return res.send({message:"Login failed",description:"This username already exits"})
+        return res.send({message:"Registration failed",description:"This username already exits"})
     }
     else if(oldEmail){
-        return res.send({message:"Login failed",description:"This email already exits"})
+        return res.send({message:"Registration failed",description:"This email already exits"})
     }
     else{
 
