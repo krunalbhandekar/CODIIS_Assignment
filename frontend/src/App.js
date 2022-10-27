@@ -6,6 +6,8 @@ import User from './User/Pages/User';
 import Login from './Auth/Login';
 import MyPlan from './User/Components/MyPlan';
 import AllVideo from './User/Components/AllVideo';
+import AdminPlan from './Admin/Components/AdminPlan';
+import AdminVideo from './Admin/Components/AdminVideo';
 
 
 function App() {
@@ -17,7 +19,7 @@ function App() {
         <Route path="/user" element={<User />} />
         <Route path="/user/plan" element={<MyPlan />} />
         <Route path="/user/allvideo" element={<AllVideo/>} />
- 
+        <Route path="/admin/video" element={<AdminVideo/>} />
         <Route path="/register" element={<Register />} />
       </Routes>
     </>

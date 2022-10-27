@@ -35,6 +35,7 @@ const config = {
 axios(config)
 .then( (response) =>{
  localStorage.setItem("isAdmin",response.data.isAdmin)
+ localStorage.setItem("token",response.data.token)
  localStorage.setItem("userid",response.data._id)
 
   if(response.data.message === "Login Succesfull"){

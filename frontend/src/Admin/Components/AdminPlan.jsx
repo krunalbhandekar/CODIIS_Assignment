@@ -1,64 +1,63 @@
 import React,{useEffect} from 'react'
 import Navbar from '../Pages/Navbar'
-import {getMyPlan,deleteMyPlan} from "../../Redux/User/action"
+import {getAllPlan,deleteplan} from "../../Redux/Admin/action"
 import { useSelector,useDispatch } from 'react-redux'
 import { Box,Heading, Flex,Image,Text, Button, Grid } from '@chakra-ui/react'
+import CreatePlan from './CreatePlan'
 import { useToast } from '@chakra-ui/react'
+import EditPlan from './EditPlan'
 
 
-const MyPlan = () => {
-const userid=localStorage.getItem("userid")
 
-  const {myplan}=useSelector((state)=>state.UserReducer)
+const AdminPlan = () => {
+    const {allPlan}=useSelector((state)=>state.AdminReducer)
   const dispatch=useDispatch()
+  const token=localStorage.getItem("token")
   const toast = useToast()
 
 
-  useEffect(()=>{
-    dispatch(getMyPlan(userid))
+   useEffect(()=>{
+    dispatch(getAllPlan())
   },[])
 
-  const handeldeleteplan=(id)=>{
-    dispatch(deleteMyPlan(id)).then((res)=>{
+ 
+  const handeldelete=(id)=>{
+    dispatch(deleteplan(id,token)).then((res)=>{
       toast({
           title: res,
-          status:'success',
+          status: 'success',
           position:"top",
           duration: 3000,
           isClosable: true,
         })
-    dispatch(getMyPlan(userid))
+    dispatch(getAllPlan())
     })
   }
 
-
-
   return (
     <>
-  <Navbar/>
-  <Box>
+     <Box>
     <Flex justifyContent="space-around"  my="15px">
-      <Heading>My Plans</Heading> 
+      <Heading>All {allPlan.length} Plans</Heading>
+      <CreatePlan/>
     </Flex>
-    {myplan.length ?
       <Grid gap="15px" w="92%" m="auto" gridTemplateColumns={{base:"repeat(1,1fr)",md:"repeat(2,1fr)", lg:"repeat(3,1fr)"}}>
-      {myplan && myplan.map((e)=>(
+      {allPlan && allPlan.map((e)=>(
       <Flex direction="column" alignItems="center" justifyContent="center" p="15px" key={e._id} border="1px solid black" borderRadius="15px" lineHeight="30px">
            <Heading mb="20px">{e.title}</Heading>
             <Text >{e.description} </Text>      
             <Text fontWeight={700}>Price: ₹ {e.price}</Text>
-            <Button onClick={()=>handeldeleteplan(e._id)}>DELETE</Button>
+            <Flex gap="10px" mt="10px">
+            <EditPlan e={e}/>
+            <Button onClick={()=>handeldelete(e._id)}>DELETE</Button>
+            </Flex>
    
       </Flex>
     ))}
-  </Grid> : <Flex justifyContent="center" alignItems="center" w="90%" m="auto">
-    <Image borderRadius="15px" src="https://www.pngfind.com/pngs/m/272-2727925_continue-shopping-empty-cart-png-transparent-png.png"/>
-  </Flex>
-  
-  }
+  </Grid> 
       </Box>
     </>
   )
 }
 
-export default MyPlan
+export default AdminPlan

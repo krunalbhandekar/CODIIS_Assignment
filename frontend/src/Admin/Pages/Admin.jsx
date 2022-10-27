@@ -1,12 +1,13 @@
 import React from 'react'
-
+import Navbar from './Navbar'
+import AdminPlan from "../Components/AdminPlan"
 
 
 const Admin = () => {
   return (
     <>
-   
-   admin
+   <Navbar/>
+   <AdminPlan/>
     </>
   )
 }
