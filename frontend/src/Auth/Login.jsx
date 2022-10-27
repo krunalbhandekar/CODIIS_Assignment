@@ -24,7 +24,7 @@ const Login = () => {
     e.preventDefault()
 const config = {
   method: 'post',
-  url: 'http://localhost:8080/user/login',
+  url: 'https://protected-meadow-39296.herokuapp.com/user/login',
   headers: { 
     'Content-Type': 'application/json'
   },

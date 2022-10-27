@@ -7,7 +7,7 @@ export const getAllPlan=()=>(dispatch)=>{
     dispatch({type: types.GET_ALL_PLAN_REQUEST})
   const config = {
   method: 'get',
-  url: 'http://localhost:8080/plan',
+  url: 'https://protected-meadow-39296.herokuapp.com/plan',
   headers: { }
 };
 
@@ -28,7 +28,7 @@ export const getAllVideo=()=>(dispatch)=>{
     dispatch({type: types.GET_ALL_VIDEO_REQUEST})
   const config = {
   method: 'get',
-  url: 'http://localhost:8080/video',
+  url: 'https://protected-meadow-39296.herokuapp.com/video',
   headers: { }
 };
 
@@ -49,7 +49,7 @@ export const getMyPlan=(id)=>(dispatch)=>{
     dispatch({type: types.GET_MY_PLAN_REQUEST})
   const config = {
   method: 'get',
-  url: `http://localhost:8080/buy/${id}`,
+  url: `https://protected-meadow-39296.herokuapp.com/buy/${id}`,
   headers: { }
 };
 
@@ -68,7 +68,7 @@ export const buyplan=(plan)=>(dispatch)=>{
   dispatch({type: types.BUY_PLAN_REQUEST})
   const config = {
   method: 'post',
-  url: 'http://localhost:8080/buy/post',
+  url: 'https://protected-meadow-39296.herokuapp.com/buy/post',
   headers: { 
     'Content-Type': 'application/json'
   },
@@ -93,7 +93,7 @@ export const deleteMyPlan=(id)=>(dispatch)=>{
 
   const config = {
   method: 'delete',
-  url: `http://localhost:8080/buy/${id}`,
+  url: `https://protected-meadow-39296.herokuapp.com/buy/${id}`,
   headers: { }
 };
 

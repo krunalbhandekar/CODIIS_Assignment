@@ -7,7 +7,7 @@ export const getAllPlan=()=>(dispatch)=>{
     dispatch({type: types.GET_ALL_PLAN_REQUEST})
   const config = {
   method: 'get',
-  url: 'http://localhost:8080/plan',
+  url: 'https://protected-meadow-39296.herokuapp.com/plan',
   headers: { }
 };
 
@@ -28,7 +28,7 @@ export const getAllVideo=()=>(dispatch)=>{
     dispatch({type: types.GET_ALL_VIDEO_REQUEST})
   const config = {
   method: 'get',
-  url: 'http://localhost:8080/video',
+  url: 'https://protected-meadow-39296.herokuapp.com/video',
   headers: { }
 };
 
@@ -49,7 +49,7 @@ export const addplan=(plan,token)=>(dispatch)=>{
   dispatch({type:types.ADD_PLAN_REQUEST})
   const config = {
   method: 'post',
-  url: 'http://localhost:8080/plan/post',
+  url: 'https://protected-meadow-39296.herokuapp.com/plan/post',
   headers: { 
     'Authorization': `bearer ${token}`, 
     'Content-Type': 'application/json'
@@ -74,7 +74,7 @@ export const addvideo=(video,token)=>(dispatch)=>{
   dispatch({type:types.ADD_VIDEO_REQUEST})
   const config = {
   method: 'post',
-  url: 'http://localhost:8080/video/post',
+  url: 'https://protected-meadow-39296.herokuapp.com/video/post',
   headers: { 
     'Authorization': `bearer ${token}`, 
     'Content-Type': 'multipart/form-data'
@@ -100,7 +100,7 @@ export const deleteplan=(id,token)=>(dispatch)=>{
 
   const config = {
   method: 'delete',
-  url: `http://localhost:8080/plan/${id}`,
+  url: `https://protected-meadow-39296.herokuapp.com/plan/${id}`,
   headers: { 
     'Authorization': `bearer ${token}`
   }
@@ -124,7 +124,7 @@ export const deletevideo=(id,token)=>(dispatch)=>{
 
   const config = {
   method: 'delete',
-  url: `http://localhost:8080/video/${id}`,
+  url: `https://protected-meadow-39296.herokuapp.com/video/${id}`,
   headers: { 
     'Authorization': `bearer ${token}`
   }
@@ -148,7 +148,7 @@ export const updateplan=(id,plan,token)=>(dispatch)=>{
 
   const config = {
   method: 'put',
-  url: `http://localhost:8080/plan/${id}`,
+  url: `https://protected-meadow-39296.herokuapp.com/plan/${id}`,
   headers: { 
     'Authorization': `bearer ${token}`, 
     'Content-Type': 'application/json'
@@ -174,7 +174,7 @@ export const updatevideo=(id,plan,token)=>(dispatch)=>{
 
   const config = {
   method: 'put',
-  url: `http://localhost:8080/video/${id}`,
+  url: `https://protected-meadow-39296.herokuapp.com/video/${id}`,
   headers: { 
     'Authorization': `bearer ${token}`, 
     'Content-Type': 'multipart/form-data'

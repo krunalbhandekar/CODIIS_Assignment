@@ -25,7 +25,7 @@ const Register = () => {
 
 const config = {
   method: 'post',
-  url: 'http://localhost:8080/user/register',
+  url: 'https://protected-meadow-39296.herokuapp.com/user/register',
   headers: { 
     'Content-Type': 'application/json'
   },
