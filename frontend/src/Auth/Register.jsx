@@ -1,9 +1,9 @@
 import React from 'react'
 import { useState } from "react";
-import {Flex,Heading,Input,Button,InputGroup,Stack,InputLeftElement,chakra,Box,Link,Avatar,FormControl,FormHelperText,InputRightElement,Select} from "@chakra-ui/react";
+import {Flex,Heading,Input,Button,InputGroup,Stack,InputLeftElement,chakra,Box,Avatar,FormControl,FormHelperText,InputRightElement,Select} from "@chakra-ui/react";
 import { FaUserAlt, FaLock } from "react-icons/fa";
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,Link } from 'react-router-dom';
 import { useToast } from '@chakra-ui/react'
 
 const CFaUserAlt = chakra(FaUserAlt);
@@ -147,7 +147,7 @@ axios(config)
       </Stack>
       <Box>
         Already register?{" "}
-        <Link color="teal.500" href="/">
+        <Link color="teal.500" to="/">
           Login
         </Link>
       </Box>
